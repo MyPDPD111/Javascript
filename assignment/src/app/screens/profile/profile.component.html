@@ -1,0 +1,90 @@
+<div style="position: fixed; z-index: 50; width: 100%">
+  <app-navbar-top></app-navbar-top>
+</div>
+<div style="position: fixed; top: 0; left: 0; bottom: 0">
+  <app-navbar-left></app-navbar-left>
+</div>
+<div class="page-wrapper" style="padding-top: 100px">
+  <div class="container px-4">
+    <h3 class="mb-2">Hồ Sơ Của Tôi</h3>
+    <p class="pb-4 border-bottom">
+      Quản lý thông tin hồ sơ để bảo mật tài khoản
+    </p>
+    <div class="row mt-5">
+      <form #profile="ngForm" (ngSubmit)="submitProfileForm(profile)" class="col-7 border-end">
+        <div class="d-flex align-items-center mb-3">
+          <label class="label-left">Tên Đăng Nhập</label>
+          <p class="m-0">{{ user.name }}</p>
+        </div>
+        <div class="d-flex align-items-center mb-3">
+          <label class="label-left">Tên</label>
+          <input
+            type="name"
+            class="form-control"
+            style="width: 400px"
+            name="name"
+            ngModel
+            [(ngModel)]="user.name"
+            #name="ngModel"
+          />
+        </div>
+        <div class="d-flex align-items-center mb-3">
+          <label class="label-left">Email</label>
+          <p class="m-0">{{ user.email }}</p>
+          <a class="ms-2" [routerLink]="['email']">Thay đổi</a>
+        </div>
+        <div class="d-flex align-items-center mb-3">
+          <label class="label-left">Giới tính</label>
+          <div class="d-flex align-items-center">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio1"
+                name="1"
+                checked
+              />
+              <label class="form-check-label" for="radio1"> Nam </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio2"
+                name="1"
+              />
+              <label class="form-check-label" for="radio2"> Nữ </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio3"
+                name="1"
+              />
+              <label class="form-check-label" for="radio3"> Khác </label>
+            </div>
+          </div>
+        </div>
+        <button  type="submit" class="btn btn-outline-primary">Lưu</button>
+      </form>
+      <div class="avatar col-5">
+        <label style="cursor: pointer" for="file" class="d-block mx-auto">
+          <img
+            class="d-block mx-auto rounded-circle"
+            width="120"
+            [src]="[user.avatar]"
+            alt=""
+          />
+        </label>
+        <input type="file" id="file" hidden />
+        <label for="file" class="d-block mx-auto filebtn"> Chọn ảnh </label>
+
+        <p class="text-center">
+          Dụng lượng file tối đa 1 MB Định dạng:.JPEG, .PNG
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

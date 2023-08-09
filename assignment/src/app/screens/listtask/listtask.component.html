@@ -1,0 +1,83 @@
+<div style="position: fixed; z-index: 50; width: 100%">
+  <app-navbar-top></app-navbar-top>
+</div>
+<div style="position: fixed; top: 0; left: 0; bottom: 0">
+  <app-navbar-left></app-navbar-left>
+</div>
+<div class="page-wrapper" style="padding-top: 100px">
+  <div class="d-flex justify-content-between container">
+    <a *ngIf="isCheck" [routerLink]="['/create-task']"
+    ><button type="button" class="btn btn-outline-primary ms-4">
+      Thêm công việc
+    </button></a>
+    <input (keyup)="filter($event)" value="{{ search }}" type="search" style="width: 400px;" placeholder="Tìm kiếm" class="form-control inputsearch" id="input1" aria-describedby="emailHelp">
+  </div>
+  <div class="" *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+  <table class="table table-hover" *ngIf="!loading && listTaskFilter.length > 0">
+    <thead>
+      <tr>
+        <th class="text-center">STT</th>
+        <th class="text-center">Tên cv</th>
+        <th class="text-center">Mô tả</th>
+        <th class="text-center">Ngày bắt đầu</th>
+        <th class="text-center">Tên Project</th>
+        <th class="text-center">Người thực hiện</th>
+        <th class="text-center">Trạng thái</th>
+        <th *ngIf="isCheck" class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listTaskFilter; let i = index">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">{{ item.nameTask }}</td>
+        <td class="text-center">{{ item.desc }}</td>
+        <td class="text-center">{{ item.timeStart | date: "d/M/y" }}</td>
+        <td class="text-center">{{ item.projectId.projectName }}</td>
+        <td class="text-center" *ngIf="item.status === 'To-do'">
+          <button class="btn btn-light" disabled>Đã được giao</button>
+        </td>
+        <td class="text-center" *ngIf="item.status === 'Progress'">
+          <button class="btn btn-primary" disabled>Đang thực hiện</button>
+        </td>
+        <td class="text-center" *ngIf="item.status === 'Previews'">
+          <button class="btn btn-warning" disabled>Đang đánh giá</button>
+        </td>
+        <td class="text-center" *ngIf="item.status === 'Done'">
+          <button class="btn btn-success" disabled>Đã hoàn thành</button>
+        </td>
+        <td style="height: 100%">
+          <div
+            class="text-center d-flex align-items-center justify-content-center"
+          >
+            <img
+              width="20"
+              height="20"
+              class="rounded-circle"
+              [src]="item.performer.avatar"
+              alt=""
+            />
+            <p class="m-0 ms-2 text-capitalize">
+              {{ item.performer.name }}
+            </p>
+          </div>
+        </td>
+        <td class="text-center" *ngIf="isCheck">
+          <a [routerLink]="['/edit-task', item._id]"
+            ><button type="button" class="btn btn-outline-primary">
+              Sửa
+            </button></a
+          >
+          <button
+            type="button"
+            (click)="remove(item._id)"
+            class="btn btn-outline-danger ms-2"
+          >
+            Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

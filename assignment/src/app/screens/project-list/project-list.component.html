@@ -1,0 +1,59 @@
+
+
+<div style="position: fixed;
+    z-index: 50;
+    width: 100%;">
+        <app-navbar-top></app-navbar-top>
+    </div>
+    <div style="position: fixed; top: 0; left: 0; bottom: 0;">
+        <app-navbar-left></app-navbar-left>
+    </div>
+    <div class="page-wrapper" style="padding-top: 100px;">
+      <div class="container">
+        <a *ngIf="isCheck" [routerLink]="['/du-an/them-moi']"
+          ><button type="button" class="btn btn-outline-primary ms-4">
+            Thêm dự án
+          </button></a
+        >
+        <h3 class="text-center">Danh sách dự án</h3>
+        <div class="" *ngIf="loading">
+          <app-loading></app-loading>
+        </div>
+        <table class="table table-hover" *ngIf="!loading">
+          <thead>
+            <tr>
+              <th class="text-center">STT</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Date of Start</th>
+              <th class="text-center">Team Size</th>
+              <th class="text-center">Tổng tiền dự án</th>
+              <th class="text-center" *ngIf="isCheck">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let pr of projects; let i = index">
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ pr.projectName }}</td>
+              <td class="text-center">{{ pr.startDate | date:'d/M/y' }}</td>
+              <td class="text-center">{{ pr.member.length}}</td>
+              <td class="text-center">{{ pr.project_money | currency: "VND" }}</td>
+              <td class="text-center" *ngIf="isCheck">
+                <a
+                  [routerLink]="['/du-an/chi-tiet/', pr._id]"
+                  class="btn btn-outline-success me-2"
+                  >Chi tiết</a
+                >
+                <a
+                  [routerLink]="['/du-an/edit/', pr._id]"
+                  class="btn btn-outline-primary me-2"
+                  >Sửa</a
+                >
+                <button (click)="remove(pr._id)" class="btn btn-outline-danger">
+                  Xóa
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

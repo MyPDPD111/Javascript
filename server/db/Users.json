@@ -1,0 +1,96 @@
+[{
+	"_id": {
+		"$oid": "63e0242471a2d39cc9c1b9d4"
+	},
+	"name": "admin",
+	"email": "admin@gmail.com",
+	"role": "admin",
+	"history": [],
+	"hashed_password": "a0dfdc8ea34cb4a03bf142cf9dea5a85cfb504fea610ce153ed5034c16d4b48e",
+	"salt": "e2c218de-e40b-48a9-ae5d-f42dda3dead6",
+	"avatar": "https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png",
+	"createdAt": {
+		"$date": "2023-02-05T21:48:20.824Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-05T21:48:20.824Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63f473349746dd593f988b6c"
+	},
+	"name": "Phương",
+	"email": "phuong@gmail.com",
+	"role": "subcribe",
+	"history": [],
+	"hashed_password": "c2af82d1a9b36536f8cc34e38de3f358434a0b12107911c9aed70bf8f714048b",
+	"salt": "b8f738bf-fe3c-446d-b945-3a521057a2c7",
+	"avatar": "https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png",
+	"createdAt": {
+		"$date": "2023-02-21T07:31:00.896Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-28T07:13:25.44Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63f4883867cc13e497e90828"
+	},
+	"name": "Huy",
+	"email": "huy@gmail.com",
+	"role": "member",
+	"history": [],
+	"hashed_password": "7a84e43ba52c8bf0303da3059569cd83a6237a7dddab4bc840e6b4c73a7b65dd",
+	"salt": "e6ba0260-f16b-4acd-810d-bd7f580850c8",
+	"avatar": "https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png",
+	"createdAt": {
+		"$date": "2023-02-21T09:00:40.199Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-21T09:00:40.199Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63f488fd67cc13e497e908ce"
+	},
+	"name": "Long",
+	"email": "long@gmail.com",
+	"role": "member",
+	"history": [],
+	"hashed_password": "7f6e6f0da902ce915fbe0a350cfa555dfef93056d4b4e9f54b9bd16e0b2caa4c",
+	"salt": "b658faba-c0a8-44d4-8fb1-99e6eea23814",
+	"avatar": "https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png",
+	"createdAt": {
+		"$date": "2023-02-21T09:03:57.635Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-21T12:11:20.918Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63fb6a9b2485f369a323273d"
+	},
+	"name": "hoa",
+	"email": "hoa@gmail.com",
+	"role": "admin",
+	"history": [],
+	"hashed_password": "d44455429955c6f62677e45e60ab0a7941614db764010676e588ba1ad982d06b",
+	"salt": "4d207132-34a3-4735-80b5-79288fa5d49a",
+	"avatar": "https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png",
+	"createdAt": {
+		"$date": "2023-02-26T14:20:11.199Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-28T10:49:10.601Z"
+	},
+	"__v": 0
+}]
+

@@ -1,0 +1,49 @@
+.projectItem{
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.user{
+    padding: 4px 10px;
+    margin-left: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+.modal-abc{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.modal-view{
+   padding: 20px;
+    background-color: white;
+    width: 300px;
+}
+
+.status-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(231, 222, 222);
+    padding: 10px;
+    border-radius: 4px;
+    color: black;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color linear 0.35s;
+}
+
+.status-item:hover{
+    background-color: burlywood;
+}

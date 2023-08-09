@@ -1,0 +1,166 @@
+<div style="position: fixed;
+    z-index: 50;
+    width: 100%;">
+      <app-navbar-top></app-navbar-top>
+    </div>
+    <div style="position: fixed; top: 0; left: 0; bottom: 0;">
+      <app-navbar-left></app-navbar-left>
+    </div>
+    <div class="page-wrapper" style="padding-top: 100px;">
+      <div class="container">
+        <h3 class="my-3 text-center">Tạo công việc</h3>
+        <form #project="ngForm" (ngSubmit)="submitAddTaskForm(project)" novalidate>
+          <div class="col-6 offset-3">
+            <div class="form-group mt-3">
+              <label for="">Tên công việc</label>
+              <input
+                type="text"
+                ngModel
+                name="nameTask"
+                class="form-control"
+                #nameTask="ngModel"
+              />
+              <span
+                class="text-danger"
+                *ngIf="nameTask?.invalid && (nameTask?.dirty || nameTask?.touched)"
+                >Tên không hợp lệ</span
+              >
+            </div>
+            <div class="mt-2" *ngIf="projectData.projectName">
+              <div class="d-flex align-items-center">
+                <p class="m-0"> Tên dự án:</p>
+                <div class="user">
+                  <span style="font-weight: bold" class="text-capitalize">
+                    {{ projectData.projectName }}
+                  </span>
+                  <i (click)="onRemoveProject()" class="fa-solid fa-circle-xmark"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group list-abc mt-3" *ngIf="!projectData.projectName">
+              <label for="">Thêm dự án</label>
+              <input
+                (keyup)="filterProject($event)"
+                style="width: 300px"
+                placeholder="Tìm kiếm dự án"
+                type="search"
+                value="{{ searchProject }}"
+                class="form-control ms-3"
+              />
+              <div class="search-key" *ngIf="searchProject !== ''">
+                <ul class="list-group list-filter-user">
+                  <li  class="list-group-item" *ngIf="listProjectFilter.length === 0">
+                    Không tìm thấy kết quả nào
+                  </li>
+                  <li
+                    *ngFor="let item of listProjectFilter"
+                    (click)="onAddProject(item)"
+                    class="list-group-item"
+                    aria-current="true"
+                  >
+                    <span style="font-weight: bold" class="text-capitalize">
+                      {{ item.projectName }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-2" *ngIf="performer.userId">
+              <div class="d-flex align-items-center" >
+                <p class="m-0"> Người thực hiện:</p>
+                <div class="user">
+                  <img
+                  src=""
+                  width="20"
+                  height="20"
+                  [src]="performer.userId.avatar"
+                  class="rounded-circle"
+                  alt=""
+                />
+                  <span style="font-weight: bold" class="text-capitalize">
+                    {{ performer.userId.name }}
+                  </span>
+                  <i (click)="onRemoveAss()" class="fa-solid fa-circle-xmark"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group list-abc mt-3" *ngIf="listUser.length > 0 &&  !performer.userId">
+              <label for="">Thêm người thực hiện</label>
+              <input
+                (keyup)="filter($event)"
+                style="width: 300px"
+                placeholder="Tìm kiếm user"
+                type="search"
+                value="{{ search }}"
+                class="form-control ms-3"
+              />
+              <div class="search-key" *ngIf="search !== ''">
+                <ul class="list-group list-filter-user">
+                  <li  class="list-group-item" *ngIf="listUserFilter.length === 0">
+                    Không tìm thấy kết quả nào
+                  </li>
+                  <li
+                    *ngFor="let item of listUserFilter"
+                    (click)="onAddUser(item)"
+                    class="list-group-item"
+                    aria-current="true"
+                  >
+                    <img
+                      src=""
+                      width="20"
+                      height="20"
+                      [src]="item.userId.avatar"
+                      class="rounded-circle"
+                      alt=""
+                    />
+                    <span style="font-weight: bold" class="text-capitalize">
+                      {{ item.userId.name }} - {{ item.userId.email }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <label for="">Mô tả công việc</label>
+              <input
+                type="text"
+                ngModel
+                name="desc"
+                class="form-control"
+                #desc="ngModel"
+              />
+              <span class="text-danger" *ngIf="desc?.invalid"
+                >Bạn phải nhập mô tả công việc</span
+              >
+            </div>
+            <div class="form-group mt-3">
+              <label for="">Ngày bắt đầu</label>
+              <input
+                type="date"
+                name="startDate"
+                ngModel
+                class="form-control"
+                #startDate="ngModel"
+              />
+              <span class="text-danger" *ngIf="startDate?.invalid"
+                >Bạn phải nhập ngày bắt đầu</span
+              >
+            </div>
+            
+      
+            
+            <div class="d-flex justify-content-end mt-3">
+              <button
+                [disabled]="project.invalid"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Tạo
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+

@@ -1,0 +1,175 @@
+<div style="position: fixed;
+    z-index: 50;
+    width: 100%;">
+        <app-navbar-top></app-navbar-top>
+    </div>
+    <div style="position: fixed; top: 0; left: 0; bottom: 0;">
+        <app-navbar-left></app-navbar-left>
+    </div>
+    <div class="page-wrapper" style="padding-top: 100px;">
+      <div>
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Bread crumb and right sidebar toggle -->
+          <!-- ============================================================== -->
+          <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+              <h3 class="text-themecolor">Dashboard</h3>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="!isCheck">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a [routerLink]="['/du-an']" class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tổng dự án</h5>
+                  <p class="card-text">{{listProject.length}} dự án</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tổng số công việc đang làm và đang theo dõi</h5>
+                  <p class="card-text">{{listTask.length}} dự án</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="isCheck">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a [routerLink]="['/du-an']" class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Số lượng dự án</h5>
+                  <p class="card-text">{{listProject.length}} dự án</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tổng tiền dự án</h5>
+                  <p class="card-text">{{ totalProject | currency: "VND" }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a [routerLink]="['/member']" class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Số lượng thành viên</h5>
+                  <p class="card-text">{{listUser.length}} thành viên</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a [routerLink]="['/list-task']" class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tổng số task đã giao</h5>
+                  <p class="card-text">{{listTask.length}} công việc</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="isCheck">
+            <!-- Column -->
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div>
+                      <h5 class="card-title">Tổng quan công việc</h5>
+                    </div>
+                  </div>
+                  <div class="table-responsive mt-3 no-wrap">
+                    <table class="table vm no-th-brd pro-of-month">
+                      <thead>
+                        <tr>
+                          <th colspan="2">Người thực hiện</th>
+                          <th>Tên công việc</th>
+                          <th>Tên dự án</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of listTask">
+                          <td style="width: 50px"><span class="round"><img width="100%" [src]="item.performer.avatar" alt=""></span></td>
+                          <td>
+                            <h3 class="mb-0">{{item.performer.name}}</h3>
+                            <small class="text-muted">{{item.performer.email}}</small>
+                          </td>
+                          <td>{{item.nameTask}}</td>
+                          <td>{{item.projectId.projectName}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-4 d-flex align-items-stretch">
+              <div class="card w-100">
+                <div
+                  class="up-img"
+                  style="background-image: url(../assets/images/big/fpt.jpg)"
+                ></div>
+                <div class="card-body">
+                  <h5 class="card-title">Dự án của Phùng Đình Mỹ</h5>
+                  <span class="label label-info label-rounded">FPT Polytechnic</span>
+                  <p class="mb-0 mt-3">
+                    Giới thiệu Trường Cao đẳng FPT Polytechnic
+Trường Cao đẳng FPT Polytechnic được thực hiện đào tạo và cấp bằng Cao đẳng nghề theo Quyết định của Tổng cục dạy nghề bắt đầu từ ngày 01/07/2010. Trường hướng tới mục tiêu cung cấp kỹ năng nghề nghiệp chất lượng cao cho người học, đảm bảo được tính cạnh tranh trong môi trường phát triển ngày càng cao.
+
+Với nhận định nền kinh tế Việt Nam đang phát triển mạnh mẽ trong đó có sự đóng góp to lớn từ trên 500.000 doanh nghiệp vừa và nhỏ quy mô từ 10 đến 200 nhân viên, FPT Polytechnic nhắm tới mục tiêu cung cấp nguồn nhân lực được đào tạo tốt cho nhu cầu phát triển của không chỉ các doanh nghiệp lớn mà còn cho các doanh nghiệp này.
+
+Hướng tới người học chung trên toàn Việt Nam, chương trình cao đẳng của trường được thiết kế dựa trên những kỹ năng thiết yếu nhất để làm việc và tương thích với các hệ thống đào tạo tiên tiến trên thế giới.
+
+
+                  </p>
+                  <div class="d-flex mt-3">
+                    <a class="link" href="javascript:void(0)">Read more</a>
+                    <div class="ms-auto align-self-center">
+                      <a href="javascript:void(0)" class="link me-2"
+                        ><i class="fa fa-heart-o"></i
+                      ></a>
+                      <a href="javascript:void(0)" class="link me-2"
+                        ><i class="fa fa-share-alt"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Projects of the Month -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Notification And Feeds -->
+          <!-- ============================================================== -->
+
+          <!-- ============================================================== -->
+          <!-- End Notification And Feeds -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- End Page Content -->
+          <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+      </div>
+    </div>
+

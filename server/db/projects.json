@@ -1,0 +1,109 @@
+[{
+	"_id": {
+		"$oid": "63e0258371a2d39cc9c1b9fe"
+	},
+	"projectName": "Pháp luật",
+	"member": [
+		{
+			"userId": {
+				"$oid": "63f473349746dd593f988b6c"
+			},
+			"_id": {
+				"$oid": "63f703f341b4ffd34e24c337"
+			}
+		}
+	],
+	"startDate": "2023-05-05",
+	"project_money": null,
+	"createdAt": {
+		"$date": "2023-02-05T21:54:11.133Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-23T06:13:07.111Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63f44aeaeb1205d4c68f6384"
+	},
+	"projectName": "Xã hội",
+	"member": [
+		{
+			"userId": {
+				"$oid": "63f4883867cc13e497e90828"
+			},
+			"_id": {
+				"$oid": "63fb69fd2485f369a32326cc"
+			}
+		},
+		{
+			"userId": {
+				"$oid": "63f473349746dd593f988b6c"
+			},
+			"_id": {
+				"$oid": "63fb69fe2485f369a32326cd"
+			}
+		}
+	],
+	"startDate": "2023-02-23",
+	"project_money": 0,
+	"createdAt": {
+		"$date": "2023-02-21T04:39:06.477Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-26T14:17:33.994Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63f488d067cc13e497e908b2"
+	},
+	"projectName": "Thể thao",
+	"member": [
+		{
+			"userId": {
+				"$oid": "63f488fd67cc13e497e908ce"
+			},
+			"_id": {
+				"$oid": "63fb8279f6ced14fa4547e84"
+			}
+		}
+	],
+	"startDate": "2023-02-23",
+	"project_money": 0,
+	"createdAt": {
+		"$date": "2023-02-21T09:03:12.252Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-26T16:02:01.621Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "63fb7e86f6ced14fa4547c27"
+	},
+	"projectName": "Sức khỏe",
+	"member": [
+		{
+			"userId": {
+				"$oid": "63fb6a9b2485f369a323273d"
+			},
+			"_id": {
+				"$oid": "63fb7e86f6ced14fa4547c28"
+			}
+		}
+	],
+	"startDate": "2023-02-27",
+	"project_money": 0,
+	"createdAt": {
+		"$date": "2023-02-26T15:45:10.894Z"
+	},
+	"updatedAt": {
+		"$date": "2023-02-26T15:45:10.894Z"
+	},
+	"__v": 0
+}]
+

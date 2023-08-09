@@ -1,0 +1,14 @@
+Mở cmd ở thư mục server chạy npm install rồi npm start
+Tiếp tục mở cmd nữa ở thư mục assignment rồi chạy npm install xong npm start
+
+User Admin
+user: admin
+pass: admin@123
+
+User Member1
+user: member1
+pass: member1
+
+User Member2
+user: member2
+pass: member2

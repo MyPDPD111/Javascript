@@ -1,0 +1,134 @@
+<div style="position: fixed; z-index: 50; width: 100%">
+  <app-navbar-top></app-navbar-top>
+</div>
+<div style="position: fixed; top: 0; left: 0; bottom: 0">
+  <app-navbar-left></app-navbar-left>
+</div>
+<div class="page-wrapper" style="padding-top: 100px">
+  <div class="container">
+    <h3 class="my-3 text-center">Tạo dự án</h3>
+    <form
+      #project="ngForm"
+      (ngSubmit)="submitAddProjectForm(project)"
+      novalidate
+    >
+      <div class="col-6 offset-3">
+        <div class="form-group mt-3">
+          <label for="">Tên dự án</label>
+          <input
+            type="text"
+            ngModel
+            name="projectName"
+            class="form-control"
+            #projectName="ngModel"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              projectName?.invalid &&
+              (projectName?.dirty || projectName?.touched)
+            "
+            >Tên không hợp lệ</span
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="">Ngày bắt đầu</label>
+          <input
+            type="date"
+            name="startDate"
+            ngModel
+            class="form-control"
+            #startDate="ngModel"
+          />
+          <span class="text-danger" *ngIf="startDate?.invalid"
+            >Bạn phải nhập ngày bắt đầu</span
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="">Project Money</label>
+          <input
+            type="number"
+            name="project_money"
+            ngModel
+            class="form-control"
+            #project_money="ngModel"
+          />
+          <span class="text-danger" *ngIf="project_money?.invalid"
+            >Bạn phải nhập số lượng thành viên</span
+          >
+        </div>
+        <div class="d-flex mt-2" *ngIf="members.length > 0">
+          <div class="" style="width: 130px;">
+            <p class="m-0 me-2 d-block" >Thành viên dự án:</p>
+          </div>
+          <div class="d-flex" style="flex-wrap: wrap">
+            <div class="mb-2" *ngFor="let item of members; let i = index">
+              <div class="m-0 ms-2 user">
+                <img
+                  src=""
+                  width="20"
+                  height="20"
+                  [src]="item.userId.avatar"
+                  class="rounded-circle"
+                  alt=""
+                />
+                <span style="font-weight: bold" class="text-capitalize">
+                  {{ item.userId.name }}
+                </span>
+                <i
+                  (click)="onRemoveMembers(item.userId._id)"
+                  class="fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group list-abc mt-3">
+          <label for="">Thêm thành viên dự án</label>
+          <input
+            (keyup)="filter($event)"
+            style="width: 300px"
+            placeholder="Tìm kiếm user"
+            type="search"
+            value="{{ search }}"
+            class="form-control ms-3"
+          />
+          <div class="search-key" *ngIf="search !== ''">
+            <ul class="list-group list-filter-user">
+              <li class="list-group-item" *ngIf="listUserFilter.length === 0">
+                Không tìm thấy kết quả nào
+              </li>
+              <li
+                *ngFor="let item of listUserFilter"
+                (click)="onAddUser(item)"
+                class="list-group-item"
+                aria-current="true"
+              >
+                <img
+                  src=""
+                  width="20"
+                  height="20"
+                  [src]="item.avatar"
+                  class="rounded-circle"
+                  alt=""
+                />
+                <span style="font-weight: bold" class="text-capitalize">
+                  {{ item.name }} - {{ item.email }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <button
+            [disabled]="project.invalid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Tạo
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

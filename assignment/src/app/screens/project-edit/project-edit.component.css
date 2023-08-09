@@ -1,0 +1,17 @@
+.list-abc{
+    position: relative;
+}
+
+.list-filter-user{
+    position: absolute;
+    top: 50px;
+    width: 400px;
+    z-index: 1000;
+}
+.user{
+    padding: 4px 10px;
+    margin-left: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}

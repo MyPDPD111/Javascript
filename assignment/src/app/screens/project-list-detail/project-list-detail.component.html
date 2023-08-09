@@ -1,0 +1,215 @@
+<div style="position: fixed; z-index: 50; width: 100%">
+  <app-navbar-top></app-navbar-top>
+</div>
+<div style="position: fixed; top: 0; left: 0; bottom: 0">
+  <app-navbar-left></app-navbar-left>
+</div>
+<div class="page-wrapper" style="padding-top: 100px">
+  <input (keyup)="filter($event)" value="{{ search }}" type="search" style="width: 400px;" placeholder="Tìm kiếm" class="form-control inputsearch ms-3"  id="input1" aria-describedby="emailHelp">
+  <div class="container">
+    <h3 class="text-center m-0">Chi tiết dự án</h3>
+    <h4 class="m-0">Tên dự án: {{ projectEdit.projectName }}</h4>
+    <p class="m-0">Ngày bắt đầu: {{ projectEdit.startDate | date: "d/M/y" }}</p>
+    <p class="m-0">
+      Tổng tiền của dự án: {{ projectEdit.project_money | currency: "VND" }}
+    </p>
+    <div class="content">
+      <h3 style="font-weight: bold; font-size: 24px; text-align: center">
+        Số lượng công việc
+      </h3>
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="projectItem">
+            <h3
+              style="font-weight: bold; font-size: 18px; text-align: center"
+              class="text-uppercase"
+            >
+              TO DO
+            </h3>
+            <div class="" *ngFor="let item of listTaskFilter">
+              <div class="card" *ngIf="item.status === 'To-do'">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nameTask }}</h5>
+                  <p class="card-text">{{ item.desc }}</p>
+                  <div class="d-flex align-items-center mb-2">
+                    <p class="m-0">Người xử lý:</p>
+                    <div class="m-0 ms-2 user">
+                      <img
+                        src=""
+                        width="20"
+                        height="20"
+                        [src]="item.performer.avatar"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <span style="font-weight: bold" class="text-capitalize">
+                        {{ item.performer.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    (click)="onShowModalStatus(item._id, item.status)"
+                    class="btn btn-primary"
+                  >
+                    Chuyển trạng thái
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="projectItem">
+            <h3
+              style="font-weight: bold; font-size: 18px; text-align: center"
+              class="text-uppercase"
+            >
+              In Progress
+            </h3>
+            <div class="" *ngFor="let item of listTaskFilter">
+              <div class="card" *ngIf="item.status === 'Progress'">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nameTask }}</h5>
+                  <p class="card-text">{{ item.desc }}</p>
+                  <div class="d-flex align-items-center mb-2">
+                    <p class="m-0">Người xử lý:</p>
+                    <div class="m-0 ms-2 user">
+                      <img
+                        src=""
+                        width="20"
+                        height="20"
+                        [src]="item.performer.avatar"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <span style="font-weight: bold" class="text-capitalize">
+                        {{ item.performer.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    (click)="onShowModalStatus(item._id, item.status)"
+                    class="btn btn-primary"
+                  >
+                    Chuyển trạng thái
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="projectItem">
+            <h3
+              style="font-weight: bold; font-size: 18px; text-align: center"
+              class="text-uppercase"
+            >
+              Previews
+            </h3>
+            <div class="" *ngFor="let item of listTaskFilter">
+              <div class="card" *ngIf="item.status === 'Previews'">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nameTask }}</h5>
+                  <p class="card-text">{{ item.desc }}</p>
+                  <div class="d-flex align-items-center mb-2">
+                    <p class="m-0">Người xử lý:</p>
+                    <div class="m-0 ms-2 user">
+                      <img
+                        src=""
+                        width="20"
+                        height="20"
+                        [src]="item.performer.avatar"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <span style="font-weight: bold" class="text-capitalize">
+                        {{ item.performer.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    (click)="onShowModalStatus(item._id, item.status)"
+                    class="btn btn-primary"
+                  >
+                    Chuyển trạng thái
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="projectItem">
+            <h3
+              style="font-weight: bold; font-size: 18px; text-align: center"
+              class="text-uppercase"
+            >
+              Done
+            </h3>
+            <div class="" *ngFor="let item of listTaskFilter">
+              <div class="card" *ngIf="item.status === 'Done'">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nameTask }}</h5>
+                  <p class="card-text">{{ item.desc }}</p>
+                  <div class="d-flex align-items-center mb-2">
+                    <p class="m-0">Người xử lý:</p>
+                    <div class="m-0 ms-2 user">
+                      <img
+                        src=""
+                        width="20"
+                        height="20"
+                        [src]="item.performer.avatar"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <span style="font-weight: bold" class="text-capitalize">
+                        {{ item.performer.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    (click)="onShowModalStatus(item._id, item.status)"
+                    class="btn btn-primary"
+                  >
+                    Chuyển trạng thái
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-abc" *ngIf="isShowModal">
+      <div class="modal-view" >
+        <div class="status-item" (click)="onSetStatus('To-do')">
+          <div class="">
+            <i *ngIf="taskStatus.status === 'To-do'" class="fa-solid fa-check"></i>
+          </div>
+          <p class="m-0">TO DO</p>
+        </div>
+        <div class="status-item" (click)="onSetStatus('Progress')">
+          <div class="">
+            <i *ngIf="taskStatus.status === 'Progress'" class="fa-solid fa-check"></i>
+          </div>
+          <p class="m-0">PROGRESS</p>
+        </div>
+        <div class="status-item" (click)="onSetStatus('Previews')">
+          <div class="">
+            <i *ngIf="taskStatus.status === 'Previews'" class="fa-solid fa-check"></i>
+          </div>
+          <p class="m-0">Previews</p>
+        </div>
+        <div class="status-item" (click)="onSetStatus('Done')">
+          <div class="">
+            <i *ngIf="taskStatus.status === 'Done'" class="fa-solid fa-check"></i>
+          </div>
+          <p class="m-0">DONE</p>
+        </div>
+        <button (click)="updateStatus()" class="btn btn-primary">Cập nhật</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.label-left{
+    width: 200px;
+    margin: 0;
+}
+label{
+    margin: 0;
+}
+.filebtn{
+    padding: 10px 0;
+    margin: 20px 0;
+    width: 100px;
+    cursor: pointer;
+    transition: background-color linear 0.35s;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.filebtn:hover{
+    background-color: rgb(223, 226, 226);
+}

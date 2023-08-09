@@ -1,0 +1,85 @@
+<header class="topbar">
+  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+    <!-- ============================================================== -->
+    <!-- Logo -->
+    <!-- ============================================================== -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">
+        <!-- Logo icon --><b>
+          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+          <!-- Dark Logo icon -->
+          <img
+            src="../../../assets/images/logo-icon.png"
+            alt="homepage"
+            class="dark-logo"
+          />
+          <!-- Light Logo icon -->
+        </b>
+        <!--End Logo icon -->
+        <!-- Logo text --><span>
+          <!-- dark Logo text -->
+          <img
+            src="../../../assets/images/logo-text.png"
+            alt="homepage"
+            class="dark-logo"
+          />
+          <!-- Light Logo text -->
+        </span>
+      </a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Logo -->
+    <!-- ============================================================== -->
+    <div class="navbar-collapse">
+      <!-- ============================================================== -->
+      <!-- toggle and nav items -->
+      <!-- ============================================================== -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+            href="javascript:void(0)"
+            ><i class="fa fa-bars"></i
+          ></a>
+        </li>
+        <!-- ============================================================== -->
+        <!-- Search -->
+        <!-- ============================================================== -->
+        <li class="nav-item d-flex align-items-center ms-4">
+          
+        </li>
+      </ul>
+      <!-- ============================================================== -->
+      <!-- User profile and search -->
+      <!-- ============================================================== -->
+      <ul class="navbar-nav my-lg-0">
+        <!-- ============================================================== -->
+        <!-- Profile -->
+        <!-- ============================================================== -->
+        <li class="nav-item dropdown u-pro me-5">
+          <div class="dropdown">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                width="40"
+                [src]="user.avatar"
+                alt="user"
+                class="rounded-circle me-3"
+              />
+              <span class="hidden-md-down">{{user.name}}</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" [routerLink]="['/profile']">Xem tài khoản</a></li>
+              <li (click)="logout()"><a class="dropdown-item">Đăng xuất</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
